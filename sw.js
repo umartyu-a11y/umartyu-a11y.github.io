@@ -1,4 +1,4 @@
-const CACHE='matn-memorizer-v4';
+const CACHE='matn-memorizer-v5';
 const CORE=['./','./index.html','./manifest.webmanifest','./sw.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys()){if(key!==CACHE)await caches.delete(key)}await self.clients.claim()})()));
